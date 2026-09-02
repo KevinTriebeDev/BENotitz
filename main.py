@@ -13,12 +13,17 @@ def add_note():
     notes.append({"title": title, "text": text})
 
 def delete_note():
-    pass 
+    print("Notes:")
+    for i, note in enumerate(notes):
+        print(f"{i}: Title: {note['title']}, Text: {note['text']}")
+    index = int(input("Index of note to delete: "))
+    if 0 <= index < len(notes):
+        notes.pop(index)
 
 def update_note():
     pass
 
 add_note()
-# delete_note()
+delete_note()
 # update_note()
 show_notes()
