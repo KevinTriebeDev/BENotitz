@@ -16,14 +16,20 @@ def delete_note():
     print("Notes:")
     for i, note in enumerate(notes):
         print(f"{i}: Title: {note['title']}, Text: {note['text']}")
-    index = int(input("Index of note to delete: "))
+    index = int(input("inhalt der zu löschenden Notiz: "))
     if 0 <= index < len(notes):
         notes.pop(index)
 
 def update_note():
-    pass
+    title = input("Titel der Notiz, die du aktualisieren willst: ")
+    for note in notes:
+        if note['title'] == title:
+            note['text'] = input("Neuer Text: ")
+            print("Notiz wurde aktualisiert.")
+            return
+    print("Keine Notiz mit diesem Titel gefunden.")
 
 add_note()
 delete_note()
-# update_note()
+update_note()
 show_notes()
